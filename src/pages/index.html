@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGIP-Tech Security Training</title>
+    <link rel="stylesheet" href="../../public/css/global.css">
+</head>
+<body>
+    <!-- TopNav -->
+    <topnav-template></topnav-template>
+    <!-- Welcome message -->
+    <h1>Welcome to <br class="responsive"/>PGIP's Security Testing</h1>
+    <div class="page-content">
+        <!-- Body with border -->
+        <div class="content">
+            <img class="head-pic" src="../../public/images/image 2.png" alt="Image of side-profile of a robotic face">
+            <p id="para-1">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
+            <p id="para-2">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
+            <p id="para-3">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
+            <p id="para-4">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
+            <div class="ready-buttons">
+                <button class="no-rdy-btn">
+                    I need to study more > Go Back
+                </button>
+                <button class="rdy-btn">
+                    I'm ready to take the test
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer-template></footer-template>
+    <script src="../components/headfootMan.js" type="text/javascript" defer></script>
+</body>
+
+<style>
+    .page-content {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .content {
+        margin-inline: 3%;
+        padding: 3%;
+        display: grid;
+    }
+    .head-pic {
+        width: 76%;
+        height: auto;
+        justify-self: center;
+        grid-row: 1;
+    }
+    .topnav {
+        height: 106px;
+    }
+    .foot {
+        height: 106px;
+        position: relative;
+        bottom: 0;
+    }
+    .ready-buttons {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        align-items: center;
+        padding: 6%;
+        column-gap: 6%;
+        grid-row: 6;
+
+    }
+    .no-rdy-btn {
+        grid-column: 1;
+        background-color: var(--light-gold);
+        justify-self: start;
+        padding: 6%;
+    }
+    .rdy-btn {
+        grid-column: 2;
+        background-color: var(--light-gold);
+        justify-self: end;
+        padding: 6%;
+    }
+    @media (min-width: 600px) {
+        br.responsive {
+            display: none;
+        }
+        .content {
+            border-style: solid;
+            border-color: var(--normal-gold);
+            border-width: 1px;
+            grid-template-columns: 60% 40%;
+            grid-template-rows: auto auto auto auto auto;
+            column-gap: 2%;
+            row-gap: 2%;
+            align-items: center;
+            margin-bottom: 3%;
+        }
+        .logo {
+            height: 90px;
+            width: 324px;
+        }
+        .head-pic {
+            height: auto;
+            width: 100%;
+            grid-column: 1;
+            grid-row: 1;
+        }
+        .hamburger {
+            display: none;
+        }
+        .user-menu {
+            display: block;
+        }
+        #para-1 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        #para-2 {
+            grid-column: 1 / span 2;
+            grid-row: 2;
+        }
+        #para-3 {
+            grid-column: 1 / span 2;
+            grid-row: 3;
+        }
+        #para-4 {
+            grid-column: 1 / span 2;
+            grid-row: 4;
+        }
+        .ready-buttons {
+            grid-row: 5;
+            grid-column: 1 / span 2;
+        }
+    }
+    @media (min-width: 1024px) {
+        .head-pic {
+            grid-column: 1;
+            grid-row: 1 / span 3;
+            align-self: start;
+        }
+        .content {
+            grid-template-rows: auto auto auto auto auto;
+            grid-template-columns: 66% 34%;
+        }
+        #para-1 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        #para-2 {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        #para-3 {
+            grid-column: 2;
+            grid-auto-flow: row dense;
+        }
+        #para-4 {
+            grid-column: 1 / span 2;
+            grid-row: 4;
+        }
+        .ready-buttons {
+            grid-row: 5;
+            grid-column: 1 / span 2;
+        }
+    }
+</style>
+</html>
