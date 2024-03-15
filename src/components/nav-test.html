@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGIP-Tech Security Training</title>
+    <link rel="stylesheet" href="../../public/css/global.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo"><img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo"></div>
+  <nav class="nav-links">
+    <a href="#">Training</a> <!--  Remember to add links -->
+    <a href="#">About</a> <!--  Remember to add links -->
+    <a href="#">Test</a> <!--  Remember to add links -->
+  </nav>
+  <div class="welcome">Welcome, [UserName/Email]</div>
+  <div class="hamburger-menu">
+    <!--  Haburger lines because I'm not using an icon --> 
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+
+<style> 
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5px;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .logo {
+    flex: 1; /* Distribute the available space equally, causing items to grow and occupy available space proportionally */
+    margin-right: 20px; /* Adjusts the spacing to the right of the logo */
+  }
+  
+  .logo img {
+    max-width: 100%;
+  }
+  
+  .nav-links {
+    flex: 2; /* Distribute the available space equally, causing items to grow and occupy available space proportionally */
+    text-align: center;
+  }
+  
+  .nav-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 10px; /* Adjust spacing between links */
+  }
+
+  .welcome {
+    margin-right: 2rem;
+  }
+  
+ /* Hamburger menu */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  align-self: flex-end; /* Aligns hamburger menu to the right of the header */
+  margin-top: -50px; /* Uses a negative value to pkace it closer to the top */
+  margin-right: 20px; /* The gap between the end of the page and the hamburger menu */
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  
+  .logo img {
+    max-width: 70%;
+  }
+
+  .nav-links {    
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column; /* Changes the links to a column instead of a row on small screens */
+    align-items: center;
+  }
+
+  .welcome {
+    margin-top: 1.7rem; /* Gives the welcome message space between it and the logo */
+    text-align: center; /* Centers the welcome message */
+    order: 3; /* Sets the order to 3, so the welcome message lies at the bottom of the header - after the logo and hamburger */
+  }
+}
+</style>
+</body>
+</html>
