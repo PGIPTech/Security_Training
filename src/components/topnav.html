@@ -12,8 +12,10 @@
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <nav class="menu">
             <a href="/">Home</a>
+            <a href="/training">Training</a>
             <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <a href="/contact">Test</a>
+            <span>Welcome {username/email}</span>
         </nav>
         <style>
             body {
@@ -23,9 +25,13 @@
             .topnav {
                 display: grid;
                 grid-template-columns: 66% 34%;
-                grid-template-rows: 100%;
-                width: 95%;
-                height: 105.44px;
+                align-items: center;
+                background-color: white;
+                color: red;
+            }
+            .topnav a {
+                color: red;
+                margin-right: 1rem;
             }
             .hamburger {
                 display: block;

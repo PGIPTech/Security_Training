@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGIP-Tech Security Training</title>
+  <link rel="stylesheet" href="../../public/css/global.css">
+</head>
+<body>
+  <div class="topnav-container">
+    <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <style> 
+      body {
+        background-color: var(--normal-white);
+      }
+
+      .topnav-container {
+        width: 100%;
+        height: 105.44px;
+        display: flex; /* Use Flexbox instead of Grid */
+        justify-content: space-between; /* Distribute items horizontally */
+      }
+
+      .topnav a {
+        margin-right: 1rem;
+      }
+
+      .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .logo {
+        width: auto;
+        height: 80%;
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+      }
+
+      @media screen and (min-width: 768px) {
+        .hamburger {
+          display: none;
+        }
+
+        .menu {
+          display: flex; /* Use Flexbox for menu on large screens */
+          align-items: center; /* Align menu items vertically centered */
+        }
+      }
+    </style>
+  </div>
+</body>
