@@ -1,147 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGIP-Tech Security Training</title>
-    <link rel="stylesheet" href="../../public/css/global.css">
-</head>
-<body>
-    <topnav-template></topnav-template>
-    <!-- Welcome message -->
-    <div id="welcome-banner">
-        <h4>Welcome to <br class="responsive"/>PGIP's Security Testing</h4>
-    </div>
-    <div class="container">
-        <article class="blurb">
-            <div id="img-container">
-                <img src="../../public/images/image 2.png">
-            </div>
-            <h2> About PGIP's<br>Security Test</h2>
-            <p>
-                The PGIP Security Testing is crucial in ensuring your skills and knowledge are up to par. Understanding security best practices is essential for protecting sensitive information and systems. If you feel confident and have thoroughly reviewed the documentation, Click the 'Test' button below. We believe you've got this.
-            </p>
-            <p>
-                <strong>
-                    However, if you need additional preparation:
-                </strong>
-                <ul>
-                    <li>Review the provided written documentation: It covers essential security concepts and testing procedures.</li>
-                    <li>Consider re-watching the training video: It offers valuable insights and practical tips.</li>
-                </ul>
-            </p>
-            <p>
-                Remember: To pass the PGIP Security Testing, you must achieve a 100% score. This ensures you possess the necessary understanding to handle security testing responsibilities confidently.
-            </p>
-            <p>
-                Feel free to contact your mentor or manager if you have questions or need further clarification. We're here to support you and ensure your success.
-            </p>
-            <div id="link-btns">
-                <a href="#">
-                    <img src="../../public/images/Button Back.svg">
-                </a>
-                <a href="#">
-                    <img src="../../public/images/Button Forward.svg">
-                </a>
-            </div>
-        </article>
-    </div>
-    <footer-template></footer-template>
-    <script src="../components/headfootMan.js" type="text/javascript" defer></script>
-</body>
-<style>
-     
-    .container {
-        padding: 0 1.45rem;
-        max-width: 62.5rem;
-        margin: 0 auto;
-    }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PGIP-Tech Security Training</title>
+        <link rel="stylesheet" href="../../public/css/global.css">
+    </head>
     
-    article {
-        margin: 2rem 0;
-        padding: 2rem;
-    }
-    
-    article img {
-        width: 18.75rem;
-        float: left;
-    }
-    
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-        margin-block-start: 0;
-    } 
-    
-    #link-btns {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-block-start: 1rem;
-    }
+    <style>
+        .container {
+            padding: 0 1.45rem;
+            max-width: 62.5rem;
+            margin: 0 auto;
+        }
 
-    #link-btns a {
-        /* background-color: var(--white-12); */
-        color: var(--black-13);
-        padding: 0.5rem;
-        border-radius: 4px;
-        gap: 2rem;
-        margin: 1rem auto;
-        text-decoration: none;
-        width: calc(12.1875rem - 1rem);
-        display: flex;
-        justify-content: space-between;
-        font-size: 1.25rem;
-    }
-    
-    #welcome-banner {
-        width: 100vw;
-        background-color: var(--white-12);
-        color: var(--black-13);
-        margin-block-start: 2rem;
-        /* padding-inline: 2rem; */
-    }
-
-    mark {
-        background: none;
-        color: var(--normal-gold);
-        font-weight: bolder;
-    }
-
-    strong {
-        margin-block-end: 0;
-    }
-
-    @media (min-width: 600px) {
-        ul {
-            list-style-type: disc;
-            padding-left: 2rem;
+        article {
+            margin: 2rem 0;
+            padding: 2rem;
         }
 
         article img {
-            margin-right: 1rem;
+            width: 18.75rem;
+            float: left;
         }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-block-start: 0;
+        } 
 
         #link-btns {
-            flex-direction: row;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-block-start: 1rem;
         }
 
-        .responsive {
-            display: none;
+        #link-btns a {
+            /* background-color: var(--white-12); */
+            color: var(--black-13);
+            padding: 0.5rem;
+            border-radius: 4px;
+            gap: 2rem;
+            margin: 1rem auto;
+            text-decoration: none;
+            width: calc(12.1875rem - 1rem);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
         }
 
         #welcome-banner {
-            text-align: center;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        #welcome-banner {
-            text-align: left;
+            width: 100vw;
+            background-color: var(--white-12);
+            color: var(--black-13);
+            margin-block-start: 2rem;
+            /* padding-inline: 2rem; */
         }
 
-        article img {
-            width: 35rem;
+        mark {
+            background: none;
+            color: var(--normal-gold);
+            font-weight: bolder;
         }
-    }
-</style>     
+
+        strong {
+            margin-block-end: 0;
+        }
+
+        @media (min-width: 600px) {
+            ul {
+                list-style-type: disc;
+                padding-left: 2rem;
+            }
+
+            article img {
+                margin-right: 1rem;
+            }
+
+            #link-btns {
+                flex-direction: row;
+            }
+
+            .responsive {
+                display: none;
+            }
+
+            #welcome-banner {
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #welcome-banner {
+                text-align: left;
+            }
+
+            article img {
+                width: 35rem;
+            }
+        }
+    </style>
+    <body>
+        <topnav-template></topnav-template>
+        <!-- Welcome message -->
+        <div id="welcome-banner">
+            <h4>Welcome to <br class="responsive"/>PGIP's Security Testing</h4>
+        </div>
+        <div class="container">
+            <article class="blurb">
+                <div id="img-container">
+                    <img src="../../public/images/image 2.png">
+                </div>
+                <h2> About PGIP's<br>Security Test</h2>
+                <p>
+                    The PGIP Security Testing is crucial in ensuring your skills and knowledge are up to par. Understanding security best practices is essential for protecting sensitive information and systems. If you feel confident and have thoroughly reviewed the documentation, Click the 'Test' button below. We believe you've got this.
+                </p>
+                <p>
+                    <strong>
+                        However, if you need additional preparation:
+                    </strong>
+                    <ul>
+                        <li>Review the provided written documentation: It covers essential security concepts and testing procedures.</li>
+                        <li>Consider re-watching the training video: It offers valuable insights and practical tips.</li>
+                    </ul>
+                </p>
+                <p>
+                    Remember: To pass the PGIP Security Testing, you must achieve a 100% score. This ensures you possess the necessary understanding to handle security testing responsibilities confidently.
+                </p>
+                <p>
+                    Feel free to contact your mentor or manager if you have questions or need further clarification. We're here to support you and ensure your success.
+                </p>
+                <div id="link-btns">
+                    <a href="#">
+                        <img src="../../public/images/Button Back.svg">
+                    </a>
+                    <a href="#">
+                        <img src="../../public/images/Button Forward.svg">
+                    </a>
+                </div>
+            </article>
+        </div>
+        <footer-template></footer-template>
+        <script src="../components/headfootMan.js" type="text/javascript" defer></script>
+    </body>
+</html>
