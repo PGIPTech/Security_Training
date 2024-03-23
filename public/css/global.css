@@ -80,6 +80,25 @@ p {
     font-family: 'Inter', sans-serif;
     font-weight: normal;
 }
+a {
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    
+}
+a:hover {
+    font-weight: bold;
+    color: var(--dark-hover-gold);
+    transform:scale(1.1);
+    transition: all 2s ease-in-out;
+
+}
+a:active {
+    font-weight: bolder;
+    color: var(--dark-active-gold);
+    transform:scale(1.1);
+}
 @media (min-width: 600px) {
     h1 {
         font-size: 40px;
