@@ -7,161 +7,141 @@
     <link rel="stylesheet" href="../../public/css/global.css">
 </head>
 <body>
-    <!-- TopNav -->
     <topnav-template></topnav-template>
     <!-- Welcome message -->
-    <h1>Welcome to <br class="responsive"/>PGIP's Security Testing</h1>
-    <div class="page-content">
-        <!-- Body with border -->
-        <div class="content">
-            <img class="head-pic" src="../../public/images/image 2.png" alt="Image of side-profile of a robotic face">
-            <p id="para-1">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
-            <p id="para-2">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
-            <p id="para-3">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
-            <p id="para-4">Blah, blah, blah about what to expect with the security test. What topics will it cover? A link to the learning portion in case the intern isn’t ready.</p>
-            <div class="ready-buttons">
-                <button class="no-rdy-btn">
-                    I need to study more > Go Back
-                </button>
-                <button class="rdy-btn">
-                    I'm ready to take the test
-                </button>
-            </div>
-        </div>
+    <div id="welcome-banner">
+        <h4>Welcome to <br class="responsive"/>PGIP's Security Testing</h4>
     </div>
-    <!-- Footer -->
+    <div class="container">
+        <article class="blurb">
+            <div id="img-container">
+                <img src="../../public/images/image 2.png">
+            </div>
+            <h2> About PGIP's<br>Security Test</h2>
+            <p>
+                The PGIP Security Testing is crucial in ensuring your skills and knowledge are up to par. Understanding security best practices is essential for protecting sensitive information and systems. If you feel confident and have thoroughly reviewed the documentation, Click the 'Test' button below. We believe you've got this.
+            </p>
+            <p>
+                <strong>
+                    However, if you need additional preparation:
+                </strong>
+                <ul>
+                    <li>Review the provided written documentation: It covers essential security concepts and testing procedures.</li>
+                    <li>Consider re-watching the training video: It offers valuable insights and practical tips.</li>
+                </ul>
+            </p>
+            <p>
+                Remember: To pass the PGIP Security Testing, you must achieve a 100% score. This ensures you possess the necessary understanding to handle security testing responsibilities confidently.
+            </p>
+            <p>
+                Feel free to contact your mentor or manager if you have questions or need further clarification. We're here to support you and ensure your success.
+            </p>
+            <div id="link-btns">
+                <a href="#">
+                    <img src="../../public/images/Button Back.svg">
+                </a>
+                <a href="#">
+                    <img src="../../public/images/Button Forward.svg">
+                </a>
+            </div>
+        </article>
+    </div>
     <footer-template></footer-template>
     <script src="../components/headfootMan.js" type="text/javascript" defer></script>
 </body>
-
 <style>
-    .page-content {
-        display: grid;
-        grid-template-columns: 100%;
+     
+    .container {
+        padding: 0 1.45rem;
+        max-width: 62.5rem;
+        margin: 0 auto;
     }
-    .content {
-        margin-inline: 3%;
-        padding: 3%;
-        display: grid;
+    
+    article {
+        margin: 2rem 0;
+        padding: 2rem;
     }
-    .head-pic {
-        width: 76%;
-        height: auto;
-        justify-self: center;
-        grid-row: 1;
+    
+    article img {
+        width: 18.75rem;
+        float: left;
     }
-    .topnav {
-        height: 106px;
-    }
-    .foot {
-        height: 106px;
-        position: relative;
-        bottom: 0;
-    }
-    .ready-buttons {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: auto;
+    
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-block-start: 0;
+    } 
+    
+    #link-btns {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        padding: 6%;
-        column-gap: 6%;
-        grid-row: 6;
+        margin-block-start: 1rem;
+    }
 
+    #link-btns a {
+        /* background-color: var(--white-12); */
+        color: var(--black-13);
+        padding: 0.5rem;
+        border-radius: 4px;
+        gap: 2rem;
+        margin: 1rem auto;
+        text-decoration: none;
+        width: calc(12.1875rem - 1rem);
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.25rem;
     }
-    .no-rdy-btn {
-        grid-column: 1;
-        background-color: var(--light-gold);
-        justify-self: start;
-        padding: 6%;
+    
+    #welcome-banner {
+        width: 100vw;
+        background-color: var(--white-12);
+        color: var(--black-13);
+        margin-block-start: 2rem;
+        /* padding-inline: 2rem; */
     }
-    .rdy-btn {
-        grid-column: 2;
-        background-color: var(--light-gold);
-        justify-self: end;
-        padding: 6%;
+
+    mark {
+        background: none;
+        color: var(--normal-gold);
+        font-weight: bolder;
     }
+
+    strong {
+        margin-block-end: 0;
+    }
+
     @media (min-width: 600px) {
-        br.responsive {
+        ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+
+        article img {
+            margin-right: 1rem;
+        }
+
+        #link-btns {
+            flex-direction: row;
+        }
+
+        .responsive {
             display: none;
         }
-        .content {
-            border-style: solid;
-            border-color: var(--normal-gold);
-            border-width: 1px;
-            grid-template-columns: 60% 40%;
-            grid-template-rows: auto auto auto auto auto;
-            column-gap: 2%;
-            row-gap: 2%;
-            align-items: center;
-            margin-bottom: 3%;
-        }
-        .logo {
-            height: 90px;
-            width: 324px;
-        }
-        .head-pic {
-            height: auto;
-            width: 100%;
-            grid-column: 1;
-            grid-row: 1;
-        }
-        .hamburger {
-            display: none;
-        }
-        .user-menu {
-            display: block;
-        }
-        #para-1 {
-            grid-column: 2;
-            grid-row: 1;
-        }
-        #para-2 {
-            grid-column: 1 / span 2;
-            grid-row: 2;
-        }
-        #para-3 {
-            grid-column: 1 / span 2;
-            grid-row: 3;
-        }
-        #para-4 {
-            grid-column: 1 / span 2;
-            grid-row: 4;
-        }
-        .ready-buttons {
-            grid-row: 5;
-            grid-column: 1 / span 2;
+
+        #welcome-banner {
+            text-align: center;
         }
     }
+
     @media (min-width: 1024px) {
-        .head-pic {
-            grid-column: 1;
-            grid-row: 1 / span 3;
-            align-self: start;
+        #welcome-banner {
+            text-align: left;
         }
-        .content {
-            grid-template-rows: auto auto auto auto auto;
-            grid-template-columns: 66% 34%;
-        }
-        #para-1 {
-            grid-column: 2;
-            grid-row: 1;
-        }
-        #para-2 {
-            grid-column: 2;
-            grid-row: 2;
-        }
-        #para-3 {
-            grid-column: 2;
-            grid-auto-flow: row dense;
-        }
-        #para-4 {
-            grid-column: 1 / span 2;
-            grid-row: 4;
-        }
-        .ready-buttons {
-            grid-row: 5;
-            grid-column: 1 / span 2;
+
+        article img {
+            width: 35rem;
         }
     }
-</style>
-</html>
+</style>     
