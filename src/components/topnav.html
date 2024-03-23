@@ -9,57 +9,110 @@
 <body>
     <div class="topnav">
         <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <nav class="menu">
-            <a href="/">Home</a>
-            <a href="/training">Training</a>
-            <a href="/about">About</a>
-            <a href="/contact">Test</a>
-            <span>Welcome {username/email}</span>
+        <nav id="menu" class="menu">
+            <div class="nav-toggle">
+                <a href="/">Home</a>
+                <a href="/training">Training</a>
+                <a href="/about">About</a>
+                <a href="/contact">Test</a>          
+                <span class="welcome">Welcome {username/email}</span>
+            </div>
         </nav>
-        <style>
-            body {
-                background-color: var(--normal-white);
-                display: grid;
-            }
-            .topnav {
-                display: grid;
-                grid-template-columns: 66% 34%;
-                align-items: center;
-                background-color: white;
-                color: red;
-            }
-            .topnav a {
-                color: red;
-                margin-right: 1rem;
-            }
+        <button id="hamburger-toggle" class="hamburger">
+            <div class="icon-open">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 6l16 0" />
+                    <path d="M4 12l16 0" />
+                    <path d="M4 18l16 0" />
+                </svg>
+            </div>
+            <div class="icon-close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 6l-12 12" />
+                    <path d="M6 6l12 12" />
+                </svg>
+            </div>
+        </button>
+    </div>
+    <style>
+        body {
+            background-color: var(--normal-white);
+            display: grid;
+        }
+        .topnav {
+            display: grid;
+            grid-template-columns: 66% 34%;
+            align-items: center;
+            background-color: white;
+            color: rgb(0, 0, 0);
+        }
+        .topnav a {
+            color: rgb(0, 0, 0);
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+        .topnav a:hover{
+        color: lightslategray
+        }
+
+        .menu.open .welcome {
+            display: none;
+        }
+
+        .menu.open .nav-toggle {
+            display: inline-grid; 
+        }
+        .hamburger {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            grid-row: 1;
+            grid-column: 2;
+            align-self: start;
+            justify-self: end;
+            background: unset;
+            border: unset;
+        }
+        .hamburger .icon-close {
+            display: none;
+        }
+        .logo {
+            width: auto;
+            grid-row: 1;
+            grid-column: 1;
+            height: 80%;
+        }
+        .hide-logo {
+            display: none;
+        }
+        .menu {
+            display: none;
+        }
+        
+        .menu.open {
+            display: inline-grid;
+            justify-items: space-around;
+        }
+        
+        .menu.open .nav-toggle a {
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        @media screen and (min-width: 768px) {
             .hamburger {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-                grid-row: 1;
-                grid-column: 2;
-                align-self: start;
-                justify-self: end;
-            }
-            .logo {
-                width: auto;
-                grid-row: 1;
-                grid-column: 1;
-                height: 80%;
-            }
-            .menu {
                 display: none;
             }
-            
-            @media screen and (min-width: 768px) {
-                .hamburger {
-                    display: none;
-                }
-                .menu {
-                    display: block;
-                }
+            .menu {
+                display: block;
+            }  
+            .menu.open {
+                display: flex;
             }
-        </style>
-    </div>
+        }
+    </style>
+    <script src="./headfootMan.js"></script>
 </body>
+</html>

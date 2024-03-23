@@ -1,3 +1,26 @@
+const hamburgerToggle = document.querySelector("#hamburger-toggle");
+const navbar = document.querySelector("#menu");
+const logo = document.querySelector(".logo");
+const iconOpen = document.querySelector(".icon-open");
+const iconClose = document.querySelector(".icon-close");
+
+hamburgerToggle.addEventListener("click", onHamburgerToggleClick);
+
+function onHamburgerToggleClick() {
+    if (!navbar.classList.contains("open")) {
+        navbar.classList.add("open");
+        logo.style.display = "none";
+        iconClose.style.display = "block";
+        iconOpen.style.display = "none";
+    } else {
+        navbar.classList.remove("open");
+        logo.style.display = "block";
+        iconClose.style.display = "none";
+        iconOpen.style.display = "block";
+    }
+}
+
+
 class TopNavTemplate extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
