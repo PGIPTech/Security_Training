@@ -1,59 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGIP-Tech Security Training</title>
-    <link rel="stylesheet" href="../../public/css/global.css">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGIP-Tech Security Training</title>
+  <link rel="stylesheet" href="../../public/css/global.css">
 </head>
-<body>
-    <div class="topnav">
-        <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <nav class="menu">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-        </nav>
-        <style>
-            body {
-                background-color: var(--normal-white);
-                display: grid;
-            }
-            .topnav {
-                display: grid;
-                grid-template-columns: 66% 34%;
-                grid-template-rows: 100%;
-                width: 95%;
-                height: 105.44px;
-            }
-            .hamburger {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-                grid-row: 1;
-                grid-column: 2;
-                align-self: start;
-                justify-self: end;
-            }
-            .logo {
-                width: auto;
-                grid-row: 1;
-                grid-column: 1;
-                height: 80%;
-            }
-            .menu {
-                display: none;
-            }
-            
-            @media screen and (min-width: 768px) {
-                .hamburger {
-                    display: none;
-                }
-                .menu {
-                    display: block;
-                }
-            }
-        </style>
+
+<style>
+
+  p {
+    align-items: ;
+    color: black;
+  }
+
+  #navcontainer {
+    background-color: var(--normal-white);
+
+    display: flex; /* Use Flexbox instead of Grid */
+    align-items: center; /* Align horizontally centered */
+  }
+
+  .topnav {
+    width: 95%;
+    height: 105.44px;
+    display: flex; /* Use Flexbox instead of Grid */
+    /* justify-content: space-between; Distribute items horizontally */
+    flex-direction: column;
+  }
+
+  .imgs {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .welcome {
+    display: block;
+    align-self: center;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .logo {
+    flex-basis: 30%;
+    width: auto;
+    height: 80%;
+  }
+
+  .menu {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .hidden {
+    /* display: none; */
+  }
+
+  a {
+    color: black;
+  }
+
+  @media screen and (min-width: 769px) {
+    .hamburger {
+      display: none;
+    }
+
+    .menu {
+      display: flex; /* Use Flexbox for menu on large screens */
+      align-items: center; /* Align menu items vertically centered */
+      align-self: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+
+    .topnav {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+  }
+</style>
+
+<body id='navcontainer'>
+  <div class="topnav">
+    <div class="imgs">
+      <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
+      <button id="hamburgerBtn" class="hamburger" onClick="test()">☰</button>
     </div>
+
+    <nav id="hamburgerMenu" class="menu hidden">
+      <a href="/">Training</a>
+      <a href="/about">About</a>
+      <a href="/contact">Test</a>
+    </nav>
+
+    <div class="welcome">
+      <p>Welcome, <span id='user-name'>Username</span></p>
+    </div>
+    
+  </div>
 </body>
+<script>
+  
+  let hamburgerBtn = 
+  document.querySelector('#hamburgerBtn');
+
+  let hamburgerMenu =
+  document.querySelector('#hamburgerMenu');
+  
+  function test()
+  {
+    hamburgerMenu.classList.toggle('hidden');
+  }
+
+
+</script>
