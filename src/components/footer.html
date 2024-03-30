@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGIP-Tech Security Training</title>
-    <link rel="stylesheet" href="../../public/css/global.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PGIP-Tech Security Training</title>
+  <link rel="stylesheet" href="../../public/css/global.css" type="text/css">
 </head>
 <body>
-    <div class="foot">
-        <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
-        <p class="copyright">© PGIP Tech</p>
-        <p class="copyright-year">2024</p>
-    </div>
+  <div class="foot">
+    <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="logo">
+    <p class="copyright">© PGIP Tech</p>
+    <p class="copyright-year">2024</p>
     <style>
-        body {
-            background-color: white;
-            height: 106px;
-            margin: 2vw;
-            justify-items: center;
-            display: grid;
-        }
-        .foot {
-            width: 83%;
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 60% 20% 20%;
-            align-items: center;
-            justify-items: center;
-            height: inherit;
-        }
-        .copyright {
-            grid-row: 2;
-        }
-        .copyright-year {
-            grid-row: 3;
-        }
-        .logo {
-            grid-row: 1;
-            width: auto;
-            height: 100%;
-        }
+      body { /* Remove unnecessary rules */
+        margin: 2vw;
+      }
+
+      .foot {
+        width: 83%;
+        display: flex; /* Use Flexbox instead of Grid */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        justify-content: space-between; /* Distribute items vertically */
+        height: 106px; /* Maintain desired height */
+      }
+
+      .logo {
+        width: auto;
+        height: 100%;
+      }
+
+      .copyright,
+      .copyright-year { /* Center individual elements within the flexbox */
+        text-align: center;
+      }
     </style>
+  </div>
 </body>
+</html>
