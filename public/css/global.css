@@ -38,7 +38,8 @@
     --white-11: #EAEAEA;
     --white-12: #E9E9E9;
     --white-13: #E7E7E7;
-  }
+}
+
 body {
     max-width: 100vw;
     width: 100vw;
@@ -46,66 +47,114 @@ body {
     margin: 0;
     color: var(--white-1);
     display: grid;
-  }
+}
+
 h1 {
-    font-size: 32px;
+    font-size: 3rem;
     font-family: 'Inria-Serif', serif;
     font-weight: bold;
     background-color: var(--white-12);
     color: var(--black-13);
     padding: 25px;
 }
+
 h2 {
-    font-size: 48px;
+    font-size: 2.5rem;
     font-family: 'Inria-Serif', serif;
     font-weight: bold;
 }
+
 h3 {
-    font-size: 40px;
+    font-size: 2.25rem;
     font-family: 'Inria-Serif', serif;
     font-weight: bold;
 }
+
 h4 {
-    font-size: 36px;
+    font-size: 2rem;
     font-family: 'Inria-Serif', serif;
     font-weight: normal;
 }
+
 h5 {
-    font-size: 32px;
+    font-size: 1.5rem;
     font-family: 'Inria-Serif', serif;
     font-weight: normal;
 }
+
 p {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: 'Inter', sans-serif;
     font-weight: normal;
 }
+
 a {
-    text-decoration: none;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    
 }
+
 a:hover {
     font-weight: bold;
     color: var(--dark-hover-gold);
     transform:scale(1.1);
     transition: all 2s ease-in-out;
-
 }
+
 a:active {
     font-weight: bolder;
     color: var(--dark-active-gold);
     transform:scale(1.1);
 }
+
+li {
+    font-family: 'Inter', sans-serif;
+}
+
+footer {
+    display: flex; /* Use Flexbox instead of Grid */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: space-between; /* Distribute items vertically */
+    height: fit-content; /* Maintain desired height */
+    background-color: var(--white-12);
+}
+
+footer img {
+    width: 12.5rem;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 0.16rem;
+    margin-top: 0;
+    color: var(--black-13);
+}
+
 @media (min-width: 600px) {
     h1 {
         font-size: 40px;
     }
 }
+
 @media (min-width: 1024px) {
     h1 {
-        font-size: 56px;
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+    h3 {
+        font-size: 2.5rem;
+    }
+    
+    h4 {
+        font-size: 2.25rem;
+    }
+    
+    h5 {
+        font-size: 2rem;
     }
 }
