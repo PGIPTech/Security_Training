@@ -22,6 +22,7 @@
 
         article img {
             width: 18.75rem;
+            max-width: 100%;
             float: left;
         }
 
@@ -57,7 +58,8 @@
             background-color: var(--white-12);
             color: var(--black-13);
             margin-block-start: 2rem;
-            /* padding-inline: 2rem; */
+            box-sizing: border-box;
+            padding-inline-start: 1rem;
         }
 
         mark {
@@ -90,12 +92,14 @@
 
             #welcome-banner {
                 text-align: center;
+                padding-inline-start: 0;
             }
         }
 
         @media (min-width: 1024px) {
             #welcome-banner {
                 text-align: left;
+                padding-inline-start: 1rem;
             }
 
             article img {
