@@ -118,6 +118,7 @@ footer {
     justify-content: space-between; /* Distribute items vertically */
     height: fit-content; /* Maintain desired height */
     background-color: var(--white-12);
+    max-width: 100vw;
 }
 
 footer img {
