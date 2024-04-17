@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PGIP-Tech Security Training</title>
         <link rel="stylesheet" href="../../public/css/global.css">
+        <script src="../components/headfootMan.js" type="text/javascript" defer></script>
     </head>
     
     <style>
@@ -21,6 +22,7 @@
 
         article img {
             width: 18.75rem;
+            max-width: 100%;
             float: left;
         }
 
@@ -56,7 +58,8 @@
             background-color: var(--white-12);
             color: var(--black-13);
             margin-block-start: 2rem;
-            /* padding-inline: 2rem; */
+            box-sizing: border-box;
+            padding-inline-start: 1rem;
         }
 
         mark {
@@ -89,12 +92,14 @@
 
             #welcome-banner {
                 text-align: center;
+                padding-inline-start: 0;
             }
         }
 
         @media (min-width: 1024px) {
             #welcome-banner {
                 text-align: left;
+                padding-inline-start: 1rem;
             }
 
             article img {
@@ -143,6 +148,5 @@
             </article>
         </div>
         <footer-template></footer-template>
-        <script src="../components/headfootMan.js" type="text/javascript" defer></script>
     </body>
 </html>

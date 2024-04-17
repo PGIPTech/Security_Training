@@ -1,106 +1,135 @@
 class TopNavTemplate extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <div class="topnav">
-            <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="head-logo">
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
-            <p id="user-info">Welcome, [UserName/Email]</p>
-            <style>
-                .topnav {
-                    background-color: var(--white-12);
-                    display: grid;
-                    grid-template-columns: 66% 34%;
-                    grid-template-rows: 100%;
-                    height: 106px;
-                    color: var(--black-13);
-                    grid-row: 1;
+        <header class="navbar">
+            <div class="logo">
+                <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo">
+            </div>
+            <nav class="nav-links" id="burgerMenu">
+                <a href="/">Home</a>
+                <a href="/training">Training</a> 
+                <a href="/about">About</a> 
+                <a href="/test">Test</a> 
+            </nav>
+            <button class="hamburger-menu" id="burgerBtn" onclick="toggleMenu()">
+                <!--  Hamburger lines because I'm not using an icon --> 
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+            <span class="welcome">Welcome, {UserName/Email}</span>
+        </header>
+        <style> 
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px 5px;
+                background-color: #fff;
+                color: #000;
+            }
+            
+            .logo {
+                flex: 1; /* Distribute the available space equally, causing items to grow and occupy available space proportionally */
+                margin-right: 20px; /* Adjusts the spacing to the right of the logo */
+                align-self: start;
+            }
+            
+            .logo img {
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                flex: 2; /* Distribute the available space equally, causing items to grow and occupy available space proportionally */
+                text-align: center;
+                flex-direction: column;
+            }
+            
+            .nav-links a {
+                color: #000;
+                text-decoration: none;
+                margin: 0 10px; /* Adjust spacing between links */
+            }
+        
+            .welcome {
+                margin-right: 2rem;
+            }
+            
+            /* Hamburger menu */
+            .hamburger-menu {
+                display: none;
+                cursor: pointer;
+                align-self: flex-end; /* Aligns hamburger menu to the right of the header */
+                margin-top: -50px; /* Uses a negative value to pkace it closer to the top */
+                margin-right: 20px; /* The gap between the end of the page and the hamburger menu */
+                background: none;
+                border: none;
+            }
+        
+            .bar {
+                width: 25px;
+                height: 3px;
+                background-color: #000;
+                margin: 5px 0;
+            }
+        
+            @media screen and (max-width: 1200px) {
+                
+                .logo img {
+                max-width: 70%;
                 }
-                #user-info {
-                    justify-self: end;
-                    align-self: start;
-                    padding-inline: 0.75%
+        
+                .nav-links {    
+                display: none;
+                order: 3;
+                align-self: end;
+                margin-block: 1rem;
+                gap: 1rem;
                 }
-                .hamburger {
-                    display: block;
-                    font-size: 24px;
-                    cursor: pointer;
-                    grid-row: 1;
-                    grid-column: 2;
-                    align-self: start;
-                    justify-self: end;
+        
+                .hamburger-menu {
+                display: block;
                 }
-                .head-logo {
-                    width: auto;
-                    grid-row: 1;
-                    grid-column: 1;
-                    height: 69.44px;
-                    width: 250px;
-                    align-self: center;
+        
+                .navbar {
+                flex-direction: column; /* Changes the links to a column instead of a row on small screens */
+                align-items: center;
                 }
-                .user-menu {
-                    display: none;
+        
+                .welcome {
+                margin-top: 1.7rem; /* Gives the welcome message space between it and the logo */
+                text-align: center; /* Centers the welcome message */
+                order: 4; /* Sets the order to 3, so the welcome message lies at the bottom of the header - after the logo and hamburger */
                 }
-                @media (min-width: 600px) {
-                    .head-logo {
-                        height: 90px;
-                        width: 324px;
-                    }
-                    .hamburger {
-                        display: none;
-                    }
-                    .user-menu {
-                        display: block;
-                    }
-                }
-                @media (min-width: 1024px) {
-                    #user-info {
-                        padding-inline: 2%;
-                    }
-                }
-            </style>
-        </div>
+            }
+        </style>
         `
     }
 }    
 
+
+// Need to fix nav menu being pushed off screen to right by .imgs flex-row property
+
 class FooterTemplate extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <div class="foot">
-            <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo" class="foot-logo">
-            <p class="copyright">© PGIP Tech</p>
-            <p class="copyright-year">2024</p>
-            <style>
-                .foot {
-                    background-color: var(--white-12);
-                    justify-items: center;
-                    height: 106px;
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: 100%;
-                    grid-template-rows: 60% 20% 20%;
-                    align-items: center;
-                    justify-items: center;
-                    height: inherit;
-                    color: var(--black-13);
-                    grid-row: 3;
-                }
-                .copyright {
-                    grid-row: 2;
-                }
-                .copyright-year {
-                    grid-row: 3;
-                }
-                .foot-logo {
-                    grid-row: 1;
-                    width: 200px;
-                    height: 55.56px;
-                }
-            </style>
-        </div>
+            <footer>
+                <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo">
+                <p>© PGIP Tech</p>
+                <p>2024</p>
+            </footer>
         `
     }
 }
 
 customElements.define('topnav-template', TopNavTemplate)
 customElements.define('footer-template', FooterTemplate)
+
+function toggleMenu() {
+    var hamburgerMenu = document.getElementById('burgerMenu')
+    if (hamburgerMenu.style.display === 'none') {
+        hamburgerMenu.style.display = 'flex';
+    } else {
+        hamburgerMenu.style.display = 'none'
+    }
+}
