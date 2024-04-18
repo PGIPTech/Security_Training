@@ -9,7 +9,7 @@ class TopNavTemplate extends HTMLElement {
                 <a href="#">Home</a>
                 <a href="/training">Training</a> 
                 <a href="/about">About</a> 
-                <a href="/test">Test</a> 
+                <a href="/testing">Test</a> 
             </nav>
             <button class="hamburger-menu" id="burgerBtn" onclick="toggleMenu()">
                 <!--  Hamburger lines because I'm not using an icon --> 
