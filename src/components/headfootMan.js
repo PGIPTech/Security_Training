@@ -6,7 +6,7 @@ class TopNavTemplate extends HTMLElement {
                 <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo">
             </div>
             <nav class="nav-links" id="burgerMenu">
-                <a href="/">Home</a>
+                <a href="#">Home</a>
                 <a href="/training">Training</a> 
                 <a href="/about">About</a> 
                 <a href="/test">Test</a> 
