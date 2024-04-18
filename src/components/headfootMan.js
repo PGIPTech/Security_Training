@@ -6,10 +6,10 @@ class TopNavTemplate extends HTMLElement {
                 <img src="../../public/images/PGIPTech Header 1.png" alt="Image of PGIP-Tech logo">
             </div>
             <nav class="nav-links" id="burgerMenu">
-                <a href="#">Home</a>
-                <a href="/training">Training</a> 
-                <a href="/about">About</a> 
-                <a href="/testing">Test</a> 
+                <a href="index.html">Home</a>
+                <a href="training.html">Training</a> 
+                <a href="about.html">About</a> 
+                <a href="testing.html">Test</a> 
             </nav>
             <button class="hamburger-menu" id="burgerBtn" onclick="toggleMenu()">
                 <!--  Hamburger lines because I'm not using an icon --> 
