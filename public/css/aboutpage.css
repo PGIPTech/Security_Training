@@ -67,6 +67,10 @@ strong {
     margin-block-end: 0;
 }
 
+.header-training{
+    line-height: 3rem !important;
+}
+
 .abbr {
 font-size: 1.5rem !important;
 }
