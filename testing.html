@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PGIP-Tech Security Training</title>
+        <link rel="stylesheet" href="../../public/css/global.css">
+        
+        <script src="../components/headfootMan.js" type="text/javascript" defer></script>
+    </head>
+    <style>
+        .container {
+            padding: 0 1.45rem;
+            max-width: 62.5rem;
+            margin: 0 auto;
+        }
+
+        .quiz-container {
+            width: 70%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .answers form {
+            margin-top: 20px;
+        }
+
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"]{
+            appearance: none; /* removes default checkbox styling */
+            width: 20px;   /* Width of the checkbox */
+            height: 20px;  /* Height of the checkbox */
+            background-color: #000000; /* Background color */
+            border: 2px solid var(--normal-gold); /* Border color */
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"]:checked {
+            background-color: var(--normal-gold); /* Color when the checkbox is checked */
+        }
+
+        article {
+            margin: 2rem 0;
+            padding: 2rem;
+        }
+
+        article img {
+            width: 18.75rem;
+            max-width: 100%;
+            float: left;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-block-start: 0;
+        } 
+
+        #link-btns {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-block-start: 1rem;
+        }
+
+        #link-btns a {
+            /* background-color: var(--white-12); */
+            color: var(--black-13);
+            padding: 0.5rem;
+            border-radius: 4px;
+            gap: 2rem;
+            margin: 1rem auto;
+            text-decoration: none;
+            width: calc(12.1875rem - 1rem);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.25rem;
+        }
+
+        #welcome-banner {
+            width: 100vw;
+            background-color: var(--white-12);
+            color: var(--black-13);
+            margin-block-start: 2rem;
+            box-sizing: border-box;
+            padding-inline-start: 1rem;
+        }
+
+        button{
+            appearance: none;
+            font-family: 'Inria Serif', serif;
+            font-size: 40px;
+            align-items: center;
+            background-color: #000000;
+            color: var(--white-12);
+            border-radius: 50%;
+            border-color: var(--normal-gold);
+        }
+
+        .bg1 {
+  	        background-color: rgb(253, 253, 253);
+        }
+
+        mark {
+            background: none;
+            color: var(--normal-gold);
+            font-weight: bolder;
+        }
+
+        strong {
+            margin-block-end: 0;
+        }
+
+        @media (min-width: 600px) {
+            ul {
+                list-style-type: disc;
+                padding-left: 2rem;
+            }
+
+            article img {
+                margin-right: 1rem;
+            }
+
+            #link-btns {
+                flex-direction: row;
+            }
+
+            .responsive {
+                display: none;
+            }
+
+            #welcome-banner {
+                text-align: center;
+                padding-inline-start: 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #welcome-banner {
+                text-align: left;
+                padding-inline-start: 1rem;
+            }
+
+            article img {
+                width: 35rem;
+            }
+
+        }
+    </style>
+    <body>
+        <!-- Inject header -->
+        <topnav-template></topnav-template>
+
+        <!-- Welcome Banner -->
+        <div id="welcome-banner">
+            <h4><b>Security Awareness and Training Quiz</b></h4>
+        </div>
+    
+    <div class="quiz-container">
+        <div class="question">
+            <h3>Question One: <span>Email</span></h3>
+            <p>This is where a detailed question will go. Something like, tell me what a browser is...</p>
+        </div>
+
+        <div>
+            <p>Answer:</p>
+        </div>
+        <div class="answers">
+            <form>
+                <label><input type="checkbox" name="answer" value="1"> A browser is a software application used to access and navigate the World Wide Web.</label>
+                <label><input type="checkbox" name="answer" value="2"> A browser is a magical internet hamster that runs on a wheel to fetch web pages for you.</label>
+                <label><input type="checkbox" name="answer" value="3"> A browser is a time machine that takes you back to the 90s when the internet was just a baby.</label>
+                <label><input type="checkbox" name="answer" value="4"> A browser is a digital library where you borrow web pages instead of books, and you don't have to pay late fees.</label>
+                <label><input type="checkbox" name="answer" value="5"> It's like a window to the digital universe, but instead of glass, it's made of ones and zeroes.</label>
+            </form>
+        </div>
+    </div>
+
+    <div align="center">
+        <button id="btnChangebgColor">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>10</button>
+    </div>
+
+
+        <!-- Article content -->
+
+
+        <!-- Inject footer -->
+        <footer-template></footer-template>
+
+    </body>
+</html>
