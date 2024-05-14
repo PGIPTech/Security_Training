@@ -5,30 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PGIP-Tech Security Training</title>
         <link rel="stylesheet" href="../../public/css/global.css">
+        <link rel="stylesheet" href="../../public/css/404.css">
         <script src="../components/headfootMan.js" type="text/javascript" defer></script>
     </head>
     <style>
-
+        #error_message {
+            width: 30%;
+        }
     </style>
     <body>
         <!-- Inject header -->
         <topnav-template></topnav-template>
 
         <!-- Error Banner -->
-
+        <header>
+            <h1>404 Page Not Found</h1>
+        </header>
         
         <!--  Article picture -->
-        <!-- Temporary construction message -->
-        <div style="display: flex; flex-direction: column; justify-self: center; margin-block: 4rem;">
-            <img src="../../public/images/404notext.svg" alt="404 pic" style="width:  25rem; ">
-            <p style="text-align: center;">Page currently under construction...</p>
+        <div class="error-flex-container">
+            <div id="error-img">
+                <img src="../../public/images/404text.svg" alt="404 pic" style="width:  25rem; ">
+            </div>
+            <div id="error-text">
+                 <!-- Article header -->
+                <h2>Page Not Found: Lost in Cyberspace</h2>
+                 <!-- Article content -->
+                <p>Apologies, but the page you're seeking has slipped through the digital cracks. It's like misplacing 
+                    a book in a vast library - frustrating but not impossible.
+                </p>
+                <p>You may find your path back by retracing your digital path or returning to our homepage to explore
+                     other avenues.
+                </p>
+                <p>Don't hesitate to contact our support team for guidance if you require assistance or have any questions</p>
+                <p>Thank you for being so understanding, and we hope to have you back on track soon.</p>
+            </div>
         </div>
-
-        <!-- Article header -->
-
-
-        <!-- Article content -->
-
 
         <!-- Inject footer -->
         <footer-template></footer-template>
