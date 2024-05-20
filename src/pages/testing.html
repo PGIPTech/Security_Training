@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
         <title>PGIP-Tech Security Training</title>
         <link rel="stylesheet" href="../../public/css/global.css">
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" defer></script>
         <script src="../components/headfootMan.js" type="text/javascript" defer></script>
     </head>
     <style>
@@ -39,7 +40,7 @@
             border: 2px solid var(--normal-gold); /* Border color */
             cursor: pointer;
         }
-
+        
         input[type="checkbox"]:checked {
             background-color: var(--normal-gold); /* Color when the checkbox is checked */
         }
@@ -91,19 +92,26 @@
             padding-inline-start: 1rem;
         }
 
-        button{
+        .bg1 {
+  	        background-color: rgb(253, 253, 253);
+            color: #000000;
+        }
+
+        button {
             appearance: none;
             font-family: 'Inria Serif', serif;
-            font-size: 40px;
+            font-size: 30px;
             align-items: center;
             background-color: #000000;
             color: var(--white-12);
             border-radius: 50%;
-            border-color: var(--normal-gold);
-        }
-
-        .bg1 {
-  	        background-color: rgb(253, 253, 253);
+            border: 2px solid var(--normal-gold);
+            width: 40px; 
+            height: 40px; 
+            padding: 1px;
+            margin: 5px;
+            justify-content: center;
+            cursor: pointer;
         }
 
         mark {
@@ -160,7 +168,7 @@
         <div id="welcome-banner">
             <h4><b>Security Awareness and Training Quiz</b></h4>
         </div>
-
+    
     <div class="quiz-container">
         <div class="question">
             <h3>Question One: <span>Email</span></h3>
@@ -182,16 +190,16 @@
     </div>
 
     <div align="center">
-        <button id="btnChangebgColor">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>10</button>
+        <button class="btnChangebgColor">1</button>
+        <button class="btnChangebgColor">2</button>
+        <button class="btnChangebgColor">3</button>
+        <button class="btnChangebgColor">4</button>
+        <button class="btnChangebgColor">5</button>
+        <button class="btnChangebgColor">6</button>
+        <button class="btnChangebgColor">7</button>
+        <button class="btnChangebgColor">8</button>
+        <button class="btnChangebgColor">9</button>
+        <button class="btnChangebgColor">10</button>
     </div>
 
 
@@ -200,6 +208,15 @@
 
         <!-- Inject footer -->
         <footer-template></footer-template>
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const buttons = document.querySelectorAll('.btnChangebgColor');
+                buttons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        this.classList.add('bg1');
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
