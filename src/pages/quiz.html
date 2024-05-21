@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PGIP-Tech Security Training</title>
+    <link rel="stylesheet" href="../../public/css/global.css" />
+    <link rel="stylesheet" href="../../public/css/aboutpage.css" />
+    <script
+      src="../components/headfootMan.js"
+      type="text/javascript"
+      defer
+    ></script>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+
+      input[type="checkbox"] {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: black;
+        /* border-radius:5px; */
+        border: 3px solid #ffc000 !important;
+        vertical-align: middle;
+      }
+      input[type="checkbox"]:checked {
+        background: #ffc000 !important;
+      }
+
+      #pagination {
+        display: flex;
+      }
+
+      /* #pagination > .cirlce {
+          background-color: none;
+          border: 2px solid white;
+          border-radius: 50% ; 
+          color: white;
+          height: 20px;
+          width: 20px; 
+          padding: 10px;
+          text-align: center;
+          min-width: 14px;
+          margin: 10px;
+          font-size: 22px;
+          font-weight: bold;
+      } */
+
+      #pagination > .circle {
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        padding: 8px;
+
+        border: 2px solid #ffc000;
+        color: white;
+        text-align: center;
+        margin: 10px;
+        font: 32px Arial, sans-serif;
+        background-color: black;
+      }
+
+      .container-quiz-page{
+        margin: 0 auto;
+        padding-bottom: 2rem;
+      }
+
+      #welcome-banner-quiz{
+        margin: auto;
+        background: white;
+        margin-top: 10px;
+      }
+
+      .banner-quiz{
+        color: black;
+        margin: 1rem 2rem;
+      }
+
+      #pagination>.circle:hover{
+        background-color: white;
+        border-color: white;
+        color: black;
+        cursor: pointer;
+      }
+      
+      .selectedQuestion{
+        background-color: white !important;
+        border-color: white !important;
+        color: black !important;
+      }
+
+      .circle:hover>span{
+        color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Inject header -->
+    <topnav-template></topnav-template>
+
+    <div id="welcome-banner-quiz">
+      <h4 class="banner-quiz"><b>Security Awareness and Trainning Quiz</b></h4>
+    </div>
+    <div class="clean-space"></div>
+    <div class="container-quiz-page">
+      <div class="container-quiz">
+        <div id="question-quiz">
+          <!-- <p>Question: Who wrote the lyrics of the Frank Sinatra anthem 'My Way'?</p>
+          <ul id="question-quiz-list">
+            <li><input type="checkbox" /> A: Frank Sinatra</li>
+            <li><input type="checkbox" /> B: Kris Krist offerson</li>
+            <li><input type="checkbox" /> C: Carole King</li>
+            <li><input type="checkbox" /> D: Paul Anka</li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="clean-space"></div>
+      <div id="pagination">
+        <button class="circle" id="question-1"><span>1</span></button>
+        <button class="circle" id="question-2"><span>2</span></button>
+        <button class="circle" id="question-3"><span>3</span></button>
+        <button class="circle" id="question-4"><span>4</span></button>
+        <button class="circle" id="question-5"><span>5</span></button>
+        <button class="circle" id="question-6"><span>6</span></button>
+        <button class="circle" id="question-7"><span>7</span></button>
+        <button class="circle" id="question-8"><span>8</span></button>
+        <button class="circle" id="question-9"><span>9</span></button>
+        <button class="circle" id="question-10"><span>10</span></button>
+
+        <!-- <div class="circle" role="button" aria-pressed="false" tabindex="0"><span>1</span></div> -->
+        <!-- <div class="circle"><span>2</span></div>
+        <div class="circle"><span>3</span></div>
+        <div class="circle"><span>4</span></div>
+        <div class="circle"><span>5</span></div>
+        <div class="circle"><span>6</span></div>
+        <div class="circle"><span>7</span></div>
+        <div class="circle"><span>8</span></div>
+        <div class="circle"><span>9</span></div>
+        <div class="circle"><span>10</span></div> -->
+      </div>
+    </div>
+   
+    <!-- Inject footer -->
+    <footer-template></footer-template>
+  </body>
+  <script>
+
+  
+    //     var globalVariable;
+
+
+
+    const fetchData = async () => {
+              const res = await fetch("data.json")
+              const json = await res.json();
+      return json;
+    }
+
+    // async function generateQuestions(listQuestions){
+    //   //only take the first 10 question from the test data
+    //   //Will improve this method later.
+    //   let questions = listQuestions.slice(0,10);
+    //   console.log(questions);
+    //   var quiz = document.getElementById("question-quiz");
+
+    //   var titleQuiz = document.createElement('p');
+    //   titleQuiz.innerHTML = "title for the question";
+
+    //   quiz.appendChild(titleQuiz);
+
+    //   var ul = document.createElement('ul');
+    //   ul.setAttribute('id','question-quiz-list');
+
+    //   quiz.appendChild(ul);
+
+    //   questions.forEach(element => {
+    //     var li = document.createElement('li');
+
+    //     var checkbox = document.createElement('input');
+    //     checkbox.setAttribute('type', 'checkbox');
+    //     let label = document.createElement('label');
+    //     label.appendChild(document.createTextNode('This is the label for checkbox.'));
+
+    //     li.appendChild(checkbox);
+    //     li.append(label);
+    //     ul.appendChild(li);
+    //   });
+    // }
+
+
+    let listbButton = new Array();
+    let questionBank = new Array();
+    
+    (async() => {
+      console.log('before start');
+
+      let global2 = await fetchData();
+      
+      var randomNumber = Math.random() * (100 - 1) + 1;
+      questionBank = global2.slice(randomNumber,randomNumber + 10);
+      console.log(questionBank);
+      getListPagination();
+      generateFirstQuestion(questionBank[0]);
+      // generateQuestions(global2)
+
+      console.log('after start');
+    })();
+
+    async function buildData(){
+
+    }
+
+    async function generateFirstQuestion(question){
+    
+      console.log(question);
+      var quiz = document.getElementById("question-quiz");
+      quiz.innerHTML = "";
+      var titleQuiz = document.createElement('p');
+      titleQuiz.innerHTML = "Question : " + question.question;
+
+      quiz.appendChild(titleQuiz);
+
+      var ul = document.createElement('ul');
+      ul.setAttribute('id','question-quiz-list');
+
+      quiz.appendChild(ul);
+
+      var li1 = document.createElement('li');
+      var checkbox1 = document.createElement('input');
+      checkbox1.setAttribute('type', 'checkbox');
+      let label1 = document.createElement('label');
+      label1.appendChild(document.createTextNode(question.A));
+
+      li1.appendChild(checkbox1);
+        li1.append(label1);
+        ul.appendChild(li1);
+
+      var li2 = document.createElement('li');
+      var checkbox2 = document.createElement('input');
+      checkbox2.setAttribute('type', 'checkbox');
+      let label2 = document.createElement('label');
+      label2.appendChild(document.createTextNode(question.B));
+
+
+      li2.appendChild(checkbox2);
+        li2.append(label2);
+        ul.appendChild(li2);
+
+
+
+      var li3 = document.createElement('li');
+      var checkbox3 = document.createElement('input');
+      checkbox3.setAttribute('type', 'checkbox');
+      let label3 = document.createElement('label');
+      label3.appendChild(document.createTextNode(question.C));
+
+      li3.appendChild(checkbox3);
+        li3.append(label3);
+        ul.appendChild(li3);
+
+
+
+      var li4 = document.createElement('li');
+      var checkbox4 = document.createElement('input');
+      checkbox4.setAttribute('type', 'checkbox');
+      let label4 = document.createElement('label');
+      label4.appendChild(document.createTextNode(question.D));
+
+      li4.appendChild(checkbox4);
+        li4.append(label4);
+        ul.appendChild(li4);
+
+    }
+
+      
+
+    async function getListPagination(){
+      for(var i = 1 ; i < 11 ; i++){
+        var singleButton = document.getElementById("question-"+i);
+        singleButton.addEventListener("click",pressButton);
+        listbButton.push(singleButton);
+      }
+      console.log(listbButton);
+    }
+
+    async function pressButton(e){
+      removedSelectedButton();
+      console.log("button click", e.currentTarget.id);
+      var selectedQuestionID = e.currentTarget.id
+      document.getElementById(selectedQuestionID).classList.add('selectedQuestion');
+      
+      var selectedQuestion = selectedQuestionID.split("-")[1] - 1;
+      generateFirstQuestion(questionBank[selectedQuestion]);
+    }
+
+    //remove style for previous question
+    function removedSelectedButton(){
+      var foundSelectedButton =listbButton.filter(e => e.classList.value.indexOf('selectedQuestion')>-1);
+      if(foundSelectedButton.length > 0) foundSelectedButton[0].classList.remove('selectedQuestion');
+    }
+  </script>
+</html>
