@@ -108,13 +108,7 @@
     <div class="container-quiz-page">
       <div class="container-quiz">
         <div id="question-quiz">
-          <!-- <p>Question: Who wrote the lyrics of the Frank Sinatra anthem 'My Way'?</p>
-          <ul id="question-quiz-list">
-            <li><input type="checkbox" /> A: Frank Sinatra</li>
-            <li><input type="checkbox" /> B: Kris Krist offerson</li>
-            <li><input type="checkbox" /> C: Carole King</li>
-            <li><input type="checkbox" /> D: Paul Anka</li>
-          </ul> -->
+         
         </div>
       </div>
       <div class="clean-space"></div>
@@ -129,17 +123,6 @@
         <button class="circle" id="question-8"><span>8</span></button>
         <button class="circle" id="question-9"><span>9</span></button>
         <button class="circle" id="question-10"><span>10</span></button>
-
-        <!-- <div class="circle" role="button" aria-pressed="false" tabindex="0"><span>1</span></div> -->
-        <!-- <div class="circle"><span>2</span></div>
-        <div class="circle"><span>3</span></div>
-        <div class="circle"><span>4</span></div>
-        <div class="circle"><span>5</span></div>
-        <div class="circle"><span>6</span></div>
-        <div class="circle"><span>7</span></div>
-        <div class="circle"><span>8</span></div>
-        <div class="circle"><span>9</span></div>
-        <div class="circle"><span>10</span></div> -->
       </div>
     </div>
    
@@ -194,6 +177,7 @@
     let listbButton = new Array();
     let questionBank = new Array();
     
+    let multipleQuestions = new Array();
     (async() => {
       console.log('before start');
 
@@ -203,87 +187,105 @@
       questionBank = global2.slice(randomNumber,randomNumber + 10);
       console.log(questionBank);
       getListPagination();
-      generateFirstQuestion(questionBank[0]);
+      // generateFirstQuestion(questionBank[0]);
       // generateQuestions(global2)
 
       console.log('after start');
+      buildData()
     })();
 
     async function buildData(){
-
+      fetch('http://localhost:4600/getquestions')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          console.log(response);
+          return response.json();
+        })
+        .then(data => {
+          console.log('Data received:', data);
+          //start loading question into UI
+          generateQuestions(data[0]);
+          multipleQuestions = data;
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
     }
 
-    async function generateFirstQuestion(question){
-    
-      console.log(question);
+    async function generateQuestions(question){
+      // console.log(question);
       var quiz = document.getElementById("question-quiz");
       quiz.innerHTML = "";
       var titleQuiz = document.createElement('p');
-      titleQuiz.innerHTML = "Question : " + question.question;
-
+      titleQuiz.innerHTML = "Question : " + question.content;
       quiz.appendChild(titleQuiz);
 
       var ul = document.createElement('ul');
-      ul.setAttribute('id','question-quiz-list');
-
+      ul.setAttribute('id', question.id);
+      ul.addEventListener("click",selectedAnswers);
       quiz.appendChild(ul);
+      for(let i = 0 ; i < question.answers.length ; i++){
+        // console.log(question.answers[i])
+        var li1 = document.createElement('li');
+       
+        var checkbox1 = document.createElement('input');
+        checkbox1.setAttribute('type', 'checkbox');
+        checkbox1.setAttribute('value', question.answers[i].question_id + "-"+ question.answers[i].answer_id);
+        checkbox1.setAttribute('id', 'answer-'+question.answers[i].answer_id);
+        // checkbox1.addEventListener("click",selectedAnswers);
+        let label1 = document.createElement('label');
+        label1.appendChild(document.createTextNode(question.answers[i].content));
 
-      var li1 = document.createElement('li');
-      var checkbox1 = document.createElement('input');
-      checkbox1.setAttribute('type', 'checkbox');
-      let label1 = document.createElement('label');
-      label1.appendChild(document.createTextNode(question.A));
-
-      li1.appendChild(checkbox1);
+        li1.appendChild(checkbox1);
         li1.append(label1);
         ul.appendChild(li1);
-
-      var li2 = document.createElement('li');
-      var checkbox2 = document.createElement('input');
-      checkbox2.setAttribute('type', 'checkbox');
-      let label2 = document.createElement('label');
-      label2.appendChild(document.createTextNode(question.B));
-
-
-      li2.appendChild(checkbox2);
-        li2.append(label2);
-        ul.appendChild(li2);
-
-
-
-      var li3 = document.createElement('li');
-      var checkbox3 = document.createElement('input');
-      checkbox3.setAttribute('type', 'checkbox');
-      let label3 = document.createElement('label');
-      label3.appendChild(document.createTextNode(question.C));
-
-      li3.appendChild(checkbox3);
-        li3.append(label3);
-        ul.appendChild(li3);
-
-
-
-      var li4 = document.createElement('li');
-      var checkbox4 = document.createElement('input');
-      checkbox4.setAttribute('type', 'checkbox');
-      let label4 = document.createElement('label');
-      label4.appendChild(document.createTextNode(question.D));
-
-      li4.appendChild(checkbox4);
-        li4.append(label4);
-        ul.appendChild(li4);
-
+      }
+      loadAnswers(question);
     }
 
-      
+    async function loadAnswers(question){
+      if(question.selectedAnswer !== undefined){
+        question.selectedAnswer.forEach(element => {
+          console.log(element)
+          let childCheckboxes = document.getElementById('answer-'+element);
+          childCheckboxes.setAttribute("checked", "true");
+        });
+      }
+    }
 
+    async function selectedAnswers(e){
+      // console.log(e);
+      var _selector = document.querySelectorAll('input[type=checkbox]');
+      // console.log(_selector);
+      var selectedAnswer = [];
+      let questionid = -1;
+      for(var i = 0; i < _selector.length; i++) {     
+        const tempAnswer = _selector[i].value.split("-");
+          questionid = tempAnswer[0];
+          if(_selector[i].checked){
+            selectedAnswer.push(tempAnswer[1]);
+          
+          }
+           
+      }
+      // console.log(selectedAnswer);
+      for(let i =0 ; i< multipleQuestions.length ; i++){
+        if(multipleQuestions[i].id === parseInt(questionid)){
+          multipleQuestions[i].selectedAnswer = selectedAnswer
+        }
+      }
+      // console.log(multipleQuestions);
+    }
+   
     async function getListPagination(){
       for(var i = 1 ; i < 11 ; i++){
         var singleButton = document.getElementById("question-"+i);
         singleButton.addEventListener("click",pressButton);
         listbButton.push(singleButton);
       }
-      console.log(listbButton);
+      // console.log(listbButton);
     }
 
     async function pressButton(e){
@@ -293,7 +295,8 @@
       document.getElementById(selectedQuestionID).classList.add('selectedQuestion');
       
       var selectedQuestion = selectedQuestionID.split("-")[1] - 1;
-      generateFirstQuestion(questionBank[selectedQuestion]);
+      // generateFirstQuestion(questionBank[selectedQuestion]);
+      if(multipleQuestions[selectedQuestion] !== undefined ) generateQuestions(multipleQuestions[selectedQuestion]);
     }
 
     //remove style for previous question
