@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 8081:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=hieuso
+      - POSTGRES_DB=pgip_test
+
+
+# connection: localhost. 8081

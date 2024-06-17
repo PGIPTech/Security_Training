@@ -1,0 +1,124 @@
+CREATE TABLE Topics (
+    TopicID INT GENERATED ALWAYS AS IDENTITY,
+    Name VARCHAR(255) UNIQUE,
+    PRIMARY KEY(TopicID)
+);
+
+CREATE TABLE ContentMetadata(
+    ContentID INT GENERATED ALWAYS as IDENTITY,
+    TopicID INT,
+    Title VARCHAR,
+    Description VARCHAR,
+    CreationDate DATE,
+    ContentType VARCHAR,
+    PRIMARY KEY(ContentID),
+    FOREIGN KEY (TopicID) REFERENCES Topics(TopicID)
+);
+
+CREATE TABLE TrainingImages(
+    TrainingImagesID INT GENERATED ALWAYS as IDENTITY,
+    ContentID INT,
+    AltText VARCHAR,
+    FilePath VARCHAR,
+    PRIMARY KEY(TrainingImagesID),
+    FOREIGN KEY (ContentID) REFERENCES ContentMetadata(ContentID)
+);
+
+CREATE TABLE TrainingDocs(
+    TrainingDocsID INT GENERATED ALWAYS as IDENTITY,
+    ContentID INT,
+    FilePath VARCHAR,
+    PRIMARY KEY(TrainingDocsID),
+    FOREIGN KEY (ContentID) REFERENCES ContentMetadata(ContentID)
+);
+
+CREATE TABLE TrainingVideos (
+  TrainingVideosID  INT GENERATED ALWAYS as IDENTITY,
+  ContentID INT,
+  Duration TIME,
+  FilePath VARCHAR,
+  PRIMARY KEY(TrainingVideosID),
+  FOREIGN KEY (ContentID) REFERENCES ContentMetadata(ContentID)
+);
+
+
+CREATE TABLE Questions(
+    QuestionID INT GENERATED ALWAYS as IDENTITY,
+    TopicID INT,
+    Content VARCHAR UNIQUE,
+    PRIMARY KEY(QuestionID),
+    FOREIGN KEY(TopicID) REFERENCES Topics(TopicID)
+);
+
+
+
+//this is a bridge table in design -> should not use unique in here. should not have primary key also, both FKs can become a primary key
+CREATE TABLE CorrectAnswers(
+    QuestionID INT,
+    AnswerID INT,
+    FOREIGN KEY(QuestionID) REFERENCES Questions(QuestionID),
+    FOREIGN KEY(AnswerID) REFERENCES Answers(AnswerID)
+);
+
+
+//CorrectAnswers seems a bridge table. now the questionID Connect to questions table ?? INTERESTING IDEAS
+CREATE TABLE Answers(
+    AnswerID INT GENERATED ALWAYS as IDENTITY,
+    QuestionID INT,
+    Content VARCHAR,
+    PRIMARY KEY(AnswerID),
+    FOREIGN KEY(QuestionID) REFERENCES Questions(questionID)
+);
+
+CREATE TABLE Quizes(
+    QuizID int GENERATED ALWAYS as IDENTITY,
+    StartTime TIMESTAMP,
+    EndTime TIMESTAMP,
+    Complete BOOLEAN,
+    Score NUMERIC(10, 2),
+    PRIMARY KEY (QuizID)
+);
+
+CREATE TABLE QuizQuestions(
+    QuizID INT,
+    questionID INT,
+    FOREIGN KEY(QuizID) REFERENCES Quizes(QuizID),
+    FOREIGN KEY(QuestionID) REFERENCES Questions(questionID)
+
+);
+
+CREATE TABLE Users(
+    UserID INT GENERATED ALWAYS as IDENTITY,
+    FirstName VARCHAR,
+    LastName VARCHAR,
+    Email VARCHAR UNIQUE,
+    PassHash VARCHAR,
+    DepartmentID INT,
+    RegistrationDate TIMESTAMP ,
+    Passed BOOLEAN,
+    PassDate TIMESTAMP
+    PRIMARY KEY (UserID)
+    FOREIGN KEY(DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+CREATE TABLE Departments(
+    DepartmentID INT GENERATED ALWAYS as IDENTITY,
+    Name VARCHAR,
+    PRIMARY KEY(DepartmentID)
+);
+
+CREATE TABLE Responses(
+    ResponseID INT GENERATED ALWAYS as IDENTITY,
+    UserID INT,
+    QuizID INT,
+    QuestionID INT,
+    AnswerID INT,
+    RespTime TIME,
+
+    PRIMARY KEY (ResponseID),
+    FOREIGN KEY(UserID) REFERENCES Users(UserID),
+    FOREIGN KEY(QuizID) REFERENCES Quizes(QuizID),
+    FOREIGN KEY(QuestionID) REFERENCES Questions(QuestionID),
+    FOREIGN KEY(AnswerID) REFERENCES Answers(AnswerID)
+
+);
