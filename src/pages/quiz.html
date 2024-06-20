@@ -124,55 +124,20 @@
         <button class="circle" id="question-9"><span>9</span></button>
         <button class="circle" id="question-10"><span>10</span></button>
       </div>
+      <div>
+        <button id="onSubmitQuestion"> Submit Answer</button>
+      </div>
     </div>
-   
+  
     <!-- Inject footer -->
     <footer-template></footer-template>
   </body>
   <script>
-
-  
-    //     var globalVariable;
-
-
-
     const fetchData = async () => {
               const res = await fetch("data.json")
               const json = await res.json();
       return json;
     }
-
-    // async function generateQuestions(listQuestions){
-    //   //only take the first 10 question from the test data
-    //   //Will improve this method later.
-    //   let questions = listQuestions.slice(0,10);
-    //   console.log(questions);
-    //   var quiz = document.getElementById("question-quiz");
-
-    //   var titleQuiz = document.createElement('p');
-    //   titleQuiz.innerHTML = "title for the question";
-
-    //   quiz.appendChild(titleQuiz);
-
-    //   var ul = document.createElement('ul');
-    //   ul.setAttribute('id','question-quiz-list');
-
-    //   quiz.appendChild(ul);
-
-    //   questions.forEach(element => {
-    //     var li = document.createElement('li');
-
-    //     var checkbox = document.createElement('input');
-    //     checkbox.setAttribute('type', 'checkbox');
-    //     let label = document.createElement('label');
-    //     label.appendChild(document.createTextNode('This is the label for checkbox.'));
-
-    //     li.appendChild(checkbox);
-    //     li.append(label);
-    //     ul.appendChild(li);
-    //   });
-    // }
-
 
     let listbButton = new Array();
     let questionBank = new Array();
@@ -185,14 +150,18 @@
       
       var randomNumber = Math.random() * (100 - 1) + 1;
       questionBank = global2.slice(randomNumber,randomNumber + 10);
-      console.log(questionBank);
       getListPagination();
-      // generateFirstQuestion(questionBank[0]);
-      // generateQuestions(global2)
-
-      console.log('after start');
-      buildData()
+      buildData();
+      const element = document.getElementById("onSubmitQuestion");
+      element.addEventListener("click", onSubmitQuestion);
     })();
+
+    function onSubmitQuestion(){
+      console.log(multipleQuestions);
+      // window.location.href = "testing.html";
+      localStorage.setItem("answer_quiz", JSON.stringify(multipleQuestions));
+      window.location.href = "answer.html";
+    }
 
     async function buildData(){
       fetch('http://localhost:4600/getquestions')

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>PGIP-Tech Security Training</title>
+        <link rel="stylesheet" href="../../public/css/global.css">
+        <link rel="stylesheet" href="../../public/css/aboutpage.css">
+        <script src="../components/headfootMan.js" type="text/javascript" defer></script>
+        <style>
+            #welcome-banner{
+                text-align: center;
+            }
+
+            .center-message{
+                margin: 0 auto;
+            }
+
+            
+        </style>
+       
+    </head>
+    <body class="reset">
+        <topnav-template></topnav-template>
+        <div id="welcome-banner">
+            <h4><b>Security Awareness and Training Quiz</b></h4>
+        </div>
+     <div class="clean-space"></div>
+        <div class="center-message">
+           Your Scored:<span id="get_score">asdadasd</span>
+           <br>
+            <div id="score">
+                <div id="display-score"></div>
+                    You need 10/10 (100%)to pass. Please, try again
+                <br>
+                <button> try again</button>
+            </div>
+            <div id="passed">
+                You passed with a score of 10/10 (100%)!
+                <br>
+                Please take a screenshot of your score and upload it to your OneDrive folder.
+            </div>
+        </div>
+        <div class="clean-space">  </div>
+        <footer-template></footer-template>
+    </body>
+</html>
+
+<script async>
+    let globalData = JSON.parse(localStorage.getItem('answer_quiz'));
+    let get_score = document.getElementById("get_score");
+    get_score.style.display='none';
+    let scoreDisplay = document.getElementById("score");
+    scoreDisplay.style.display = 'none';
+    let passed = document.getElementById("passed");
+    passed.style.display = 'none';
+    console.log(globalData)
+    let score = 0;
+    for(let i = 0 ; i< globalData.length ; i++){
+        if(globalData[i].selectedAnswer !== undefined){
+            // console.log(globalData[i].selectedAnswer);
+            const answers = globalData[i].selectedAnswer;
+            const definedAnswer = globalData[i].correctanswer;
+            let listselectedAnswer = new Array();
+            if(definedAnswer.length === 1) listselectedAnswer.push(definedAnswer[0].answer_id.toString())
+            else{
+                definedAnswer.forEach(element => {
+                    listselectedAnswer.push(element.answer_id.toString());
+                });
+            }
+            
+            console.log(listselectedAnswer);
+            if(answers.length === listselectedAnswer.length && listselectedAnswer.every(el => answers.includes(el))){
+                score += 10;
+                console.log(answers);
+            }    
+        }
+    }
+    // score = 100;
+    var textScore = document.createTextNode(score);
+    get_score.style.display='block';
+    get_score.textContent = score.toString();
+
+    if(score < 100)
+        scoreDisplay.style.display='block';
+    else
+        passed.style.display='block';
+    // globalData.array.forEach(element => {
+    //     console.log(element);
+    // });
+   
+</script>
