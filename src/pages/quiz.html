@@ -133,23 +133,23 @@
     <footer-template></footer-template>
   </body>
   <script>
-    const fetchData = async () => {
-              const res = await fetch("data.json")
-              const json = await res.json();
-      return json;
-    }
+    // const fetchData = async () => {
+    //           const res = await fetch("data.json")
+    //           const json = await res.json();
+    //   return json;
+    // }
 
     let listbButton = new Array();
-    let questionBank = new Array();
+    // let questionBank = new Array();
     
     let multipleQuestions = new Array();
     (async() => {
       console.log('before start');
 
-      let global2 = await fetchData();
+      // let global2 = await fetchData();
       
       var randomNumber = Math.random() * (100 - 1) + 1;
-      questionBank = global2.slice(randomNumber,randomNumber + 10);
+      // questionBank = global2.slice(randomNumber,randomNumber + 10);
       getListPagination();
       buildData();
       const element = document.getElementById("onSubmitQuestion");
